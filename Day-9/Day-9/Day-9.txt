@@ -1,0 +1,349 @@
+java.io -> input and output 
+
+data -> application -> input -> console, file, socket
+
+console -> string format -> wrapper classes 
+
+file -> byte array -> byte based classes
+
+InputStream - ObjectInputStream, FilterInputStream(DataInputStream),FileInputStream,BufferedInputStream(f), PipedInputStream, PushBackInputStream(f)
+OutputStream - ObjectOutputStream, FilterOutputStream(DataOutputStream),FileOutputStream,BufferedOutputStream(f),PipedOutputStream, PrintStream(f)
+
+
+char based classes
+
+Reader- FileReader, CharArrayReader
+Writer- FileWriter,CharArrayWriter
+
+
+
+
+
+application -> data -> output -> console, file, socket
+
+console -> string format -> printing
+
+
+
+able to create a file, give permission file,dir
+
+
+File -> represtation of file and directory pathname, list of content , rename our file, delete. 
+
+FileDescriptor -> this given complete information about the file.
+
+RandomAccessFile -> it is used for reading or writing to random access file. 
+
+
+
+java.lang
+java.io
+java.util ->
+
+Collection
+
+Array vs collection :
+
+Array :
+- group of similar datatype into a single entity with fixed size.
+- fixed size is a problem, where old data has to be copied new one.
+- memory wastage if we are declaring only few values.
+
+- fixed size given good performance
+- primitive data types and objects.
+- we need to create our own methods.
+
+Collection:
+- group of similar or disimilar data into a single object with increasing size.
+- Increasing of size without effect old values.
+- depending on requirement size can be increased or decreased.
+- when compared to arrays performance is low.
+- objects can be given in collection
+- ready made method are available
+
+
+Collection Frame work :
+
+- collection of classes and interfaces to create collection object and work on it.
+
+- Collection API - Application programming interfaces.
+
+
+Collection vs Collections :
+
+- Collection is an interface.
+- it is used to creat a collection object.
+
+- Collections is a class.
+- it provides services to collection object.
+
+
+List:
+1. Group of elements into single unit with duplicates.
+2. Insertion order to be preserved.
+
+
+Set :
+1. Group of elements into single unit without duplicates.
+2. Insertion order is not that important.
+
+Queue :
+1. FIFO -> first in first out
+2. Insetion order is pre defined. 
+
+
+Collection interface -> methods 
+
+ArrayList :
+
+1. growable in array datastructure.
+2. Duplicates are allowed
+3. insertion order is preserved.
+4. null values can be allowed.
+5. implements List, RandomAccess, Cloneable and Serializable
+6. java 1.2 v
+7. better for retrival operation -> 
+8. worst for adding and deleting
+
+
+Constructors :
+
+1. ArrayList al=new ArrayList(); // capacity-10
+
+
+11 element add -> nc=pc*3/2+1; -> 16\
+
+17 element add -> 25
+
+2. ArrayList al=new ArrayList(int intialcapacity);
+
+nc=pc*3/2+1;
+
+3. ArrayList al=new ArrayList(Collection c);
+
+
+Cursors :
+
+1. Iterator
+
+- uni-direction 
+- retrival
+- remove
+- universal  cursor
+
+2. ListIterator
+- child interface of Interator interface.
+- bi-direction
+- retrival
+- remove
+- replace
+- add
+- List cursor -> ArrayList, LinkedList, Vector, Stack
+
+3. Enumeration
+- uni-direction
+- retrival
+- Legacy classes -> Vector and Stack
+
+
+LinkedList : 
+
+- growable in node structure
+- duplicate are allowed
+- insertion order preserved
+- null values allowed
+- implements Cloneable, Serializable and List.
+- java 1.2
+- worst for retrival operation
+- best for adding and removing.
+
+
+Constructors :
+
+LinkedList ll=new LinkedList();
+LinkedList ll=new LinkedList(Collection c);
+
+
+
+Vector :
+
+- Growable in array structure
+- duplicates are allowed
+- insertion order is preserved
+- implements serializable, cloneable, RandomAccess, List
+- java 1.0 v
+- best for retrival operation
+- worst for adding and removing
+- Thread safety available-> all methods are synchronized.
+- performance is slow due to thread safety.
+
+constructors :
+
+1. Vector v=new Vector();
+capacity -> 10 
+
+NC=Oc*3/2+1;
+
+2. Vector v=new Vector(int initialcapacity);
+3. Vector v=new Vector(int initialcapacity,int inccapacity);
+4. Vector v=new Vector(Collection c);
+
+cursors -> Iterator, ListIterator, Enumeration
+
+
+
+Stack :
+
+1. Growable in array structure & LIFO(last in first out)
+2. Duplicates are allowed
+3. insertion order preserved
+4. null values can be inserted
+5. implements indirectly RandomAccess, Cloneable, Serializable
+6. thread safety
+7. version -> java 1.0v
+
+constructors :
+
+Stack s=new Stack(); -> 10
+
+
+Set -> no new methods  -> adding -add() -> false if we are adding duplicate
+
+
+
+HashSet :
+
+1. growable in hash table structure.
+2. duplicates are not allowed
+3. insertion order is not preserved.
+4. implements Set, Cloneable, Serializable
+5. java 1.2 v
+
+Constructors :
+
+1. HashSet hs=new HashSet(); -> 16 
+
+load factor -> 0.75 -> doubled  - default load factor
+
+2. HashSet hs=new HashSet(int initialcapacity); -> 20
+
+load factor or fill ratio -> 0.75
+
+3. HashSet hs=new HashSet(int initialcapacity, float lf);
+
+0.9 -> 90% (0-1)
+
+4. HashSet hs=new HashSet(Collection c);
+
+
+
+LinkedHashSet:
+
+1. growable in hash table and node structure.
+2. duplicates are not allowed
+3. insertion order is preserved
+4. implements Set, Cloneable, Serializable
+5. java 1.2 v
+
+constructors :
+
+1. LinkedHashSet hs=new LinkedHashSet(); -> 16 
+
+load factor -> 0.75 -> doubled  - default load factor
+
+2. LinkedHashSet hs=new LinkedHashSet(int initialcapacity); -> 20
+
+load factor or fill ratio -> 0.75
+
+3. LinkedHashSet hs=new LinkedHashSet(int initialcapacity, float lf);
+
+0.9 -> 90% (0-1)
+
+4. LinkedHashSet hs=new LinkedHashSet(Collection c);
+
+
+
+TreeSet:
+
+1. growable in hash table and binary tree structure
+2. duplicates are not allowed
+3. insertion order in not required.
+4. java 1.2 v
+5. implments serializable, cloneable
+6. can contain only homogeneous elements.
+7. null value can be insert only if Treeset is empty.
+8. if you are adding value remove null and add value.
+
+
+
+Map: -> methods -> keys and values
+
+HashMap
+1. growable in hash table structure
+2. duplicates are not allowed in keys but allowed in values.
+3. insertion order is not preserved.
+4. null insertion is possible in both key and value.
+5. java 1.2
+6. implements serilizable and cloneable
+
+Constructors :
+
+HashMap hm =new HashMap();
+capacity -> 16  load factory=0.75
+
+HashMap hm =new HashMap(int initialcapacity);
+HashMap hm =new HashMap(int initialcapacity,float lf);
+HashMap hm =new HashMap(Map m);
+
+LinkedHashMap:
+1. growable in hash table and node structure
+2. duplicates are not allowed in keys but allowed in values.
+3. insertion order is preserved.
+4. null insertion is possible in both key and value.
+5. java 1.4
+6. implements seriliazable and cloneable
+
+
+Constructors :
+
+LinkedHashMap hm =new LinkedHashMap();
+capacity -> 16  load factory=0.75
+
+LinkedHashMap hm =new LinkedHashMap(int initialcapacity);
+LinkedHashMap hm =new LinkedHashMap(int initialcapacity,float lf);
+LinkedHashMap hm =new LinkedHashMap(Map m);
+
+
+Hashtable
+1. growable in hash table structure
+2. duplicates are not allowed in keys but allowed in values.
+3. insertion order is not preserved.
+4. null insertion is possible in both key and value.
+5. java 1.0
+6. implements seriliazable and cloneable
+7. Thread safety available
+
+Constructors :
+
+Hashtable hm =new Hashtable();
+capacity -> 16  load factory=0.75
+
+Hashtable hm =new Hashtable(int initialcapacity);
+Hashtable hm =new Hashtable(int initialcapacity,float lf);
+Hashtable hm =new Hashtable(Map m);
+
+Task :
+
+- Accept customer details from user like accountnumber,customer name, customer id, customer address. In one program arrange all customer according to there accountnumber and in another program arrange them according to there names.
+- write a program to read data from a folder and tell what kind of files are there in given path.
+
+- Accept path from user then copy all files which are available in given directory to your own directory.
+
+- Write a program to understand methods of FildDescriptor and RandomAcessFile.
+
+
+
+
+
+
+
